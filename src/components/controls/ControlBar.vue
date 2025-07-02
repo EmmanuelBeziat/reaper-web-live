@@ -5,13 +5,15 @@
 			<Button><Icon name="next" /></Button>
 		</div>
 
-		<Button class="record-button"><Icon name="record" /></Button>
-		<Button class="play-button" size="2"><Icon name="play" /></Button>
-		<Button class="loop-button"><Icon name="repeat" /></Button>
+		<div class="button-group session-controls">
+			<Button class="record-button" type="toggle"><Icon name="record" /></Button>
+			<Button class="play-button" type="toggle"><Icon name="play" /></Button>
+			<Button class="loop-button" type="toggle"><Icon name="repeat" /></Button>
+		</div>
 
 		<div class="button-group transport-controls">
 			<Button><Icon name="stop" /></Button>
-			<Button><Icon name="pause" /></Button>
+			<Button type="toggle"><Icon name="pause" /></Button>
 		</div>
 	</section>
 </template>
@@ -28,22 +30,24 @@ import Icon from '@/components/IconSvg.vue'
 	gap: var(--gutter-md);
 	display: grid;
   grid-auto-flow: row;
-  grid-template: "TrackControls RecordControl PlayControl LoopControl TransportControls" auto / auto auto auto auto auto;
+  grid-template: "TrackControls SessionControls TransportControls" auto / 2fr 3fr 2fr;
 }
 
-.record-button { grid-area: RecordControl; }
+.session-controls {
+	grid-area: SessionControls;
+}
 
-.play-button { grid-area: PlayControl; }
+.transport-controls {
+	grid-area: TransportControls;
+}
 
-.loop-button { grid-area: LoopControl; }
-
-.transport-controls { grid-area: TransportControls; }
-
-.track-controls { grid-area: TrackControls; }
-
+.track-controls {
+	grid-area: TrackControls;
+}
 
 .button-group {
-	display: flex;
+	display: grid;
+	grid-template-columns: auto auto auto;
 	gap: 1px;
 }
 
