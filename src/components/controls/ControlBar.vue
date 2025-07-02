@@ -1,15 +1,15 @@
 <template>
 	<section class="controls">
-		<div class="button-group">
+		<div class="button-group track-controls">
 			<Button><Icon name="previous" /></Button>
 			<Button><Icon name="next" /></Button>
 		</div>
 
-		<Button><Icon name="record" /></Button>
-		<Button size="2"><Icon name="play" /></Button>
-		<Button><Icon name="repeat" /></Button>
+		<Button class="record-button"><Icon name="record" /></Button>
+		<Button class="play-button" size="2"><Icon name="play" /></Button>
+		<Button class="loop-button"><Icon name="repeat" /></Button>
 
-		<div class="button-group">
+		<div class="button-group transport-controls">
 			<Button><Icon name="stop" /></Button>
 			<Button><Icon name="pause" /></Button>
 		</div>
@@ -26,7 +26,21 @@ import Icon from '@/components/IconSvg.vue'
 	container: controls / inline-size;
 	padding: var(--gutter-md);
 	gap: var(--gutter-md);
+	display: grid;
+  grid-auto-flow: row;
+  grid-template: "TrackControls RecordControl PlayControl LoopControl TransportControls" auto / auto auto auto auto auto;
 }
+
+.record-button { grid-area: RecordControl; }
+
+.play-button { grid-area: PlayControl; }
+
+.loop-button { grid-area: LoopControl; }
+
+.transport-controls { grid-area: TransportControls; }
+
+.track-controls { grid-area: TrackControls; }
+
 
 .button-group {
 	display: flex;

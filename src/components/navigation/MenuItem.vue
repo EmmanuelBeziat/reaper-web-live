@@ -50,10 +50,14 @@ const isActive = computed(() => router.resolve(props.to).path === '/' + route.pa
 	background: var(--contrast-low);
 	font-weight: 600;
 	font-size: var(--font-size-heading-6);
-	transition: var(--transition-normal) var(--ease-spring);
+	transition: var(--transition-fast) ease-in-out;
 	display: flex;
 	gap: var(--gutter-md);
 	align-items: center;
+
+	> * {
+		pointer-events: none;
+	}
 
 	&.is-active {
 		background: var(--accent);

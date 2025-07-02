@@ -48,8 +48,8 @@
 	--radius-xl: calc(var(--radius-root) * 6);
 
 	/* transitions */
-	--transition-xfast: .2s;
-	--transition-fast: .25s;
+	--transition-xfast: .1s;
+	--transition-fast: .2s;
 	--transition-normal: .3s;
 	--transition-slow: .5s;
 	--transition-xslow: .75s;
